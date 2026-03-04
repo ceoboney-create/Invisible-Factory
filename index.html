@@ -1,591 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Invisible Factory | Business in a Box</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --card: #1a1a28;
-    --border: #2a2a40;
-    --gold: #ffd700;
-    --gold-dim: #b8960a;
-    --silver: #c0c0c0;
-    --steel: #4a5568;
-    --text: #f5f5f5;
-    --dim: #8892b0;
-  }
-  
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  body {
-    font-family: 'Work Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FGG x Repfam | The Agency Launchpad</title>
+    <!-- Step 1: Payhip JavaScript Integration -->
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0f0f12;
+            --border: #1f1f26;
+            --accent: #ffffff;
+            --dim: #88888e;
+            --success: #22c55e;
+        }
 
-  /* GRID BACKGROUND */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: 
-      linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: 1;
-  }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* GLOW EFFECT */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(255,215,0,0.05) 0%, transparent 50%);
-    animation: pulse 8s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
-  }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--accent);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-  }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-  .container {
-    position: relative;
-    z-index: 10;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+        /* Top Bar */
+        .top-nav {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
 
-  /* HEADER */
-  .header {
-    padding: 3rem 0;
-    text-align: center;
-    position: relative;
-  }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -1px;
+        }
 
-  .factory-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 100%);
-    border: 2px solid var(--gold);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 2rem;
-    animation: fadeInDown 0.8s ease;
-  }
+        .badge-live {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 1px solid var(--success);
+        }
 
-  .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInUp 1s ease;
-    text-shadow: 0 0 40px rgba(255,215,0,0.3);
-  }
+        /* Hero Section */
+        header {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
 
-  .subtitle {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    color: var(--dim);
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    animation: fadeInUp 1.2s ease;
-  }
+        .pre-title {
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
 
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--dim);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
 
-  /* WELCOME SECTION */
-  .welcome {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background: linear-gradient(135deg, rgba(255,215,0,0.05) 0%, transparent 100%);
-    border: 1px solid rgba(255,215,0,0.2);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 1.5s ease;
-  }
+        /* The Deal Card */
+        .deal-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-  .welcome::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
-    animation: shine 3s infinite;
-  }
+        .deal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-  @keyframes shine {
-    to { left: 100%; }
-  }
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+        .price-tag span {
+            font-size: 1rem;
+            color: var(--dim);
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
 
-  .welcome h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
 
-  .welcome p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #ccc;
-  }
+        .feature-item h4 {
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--dim);
+        }
 
-  /* SYSTEM GRID */
-  .systems-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin: 5rem 0;
-  }
+        .feature-item p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
 
-  .system-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2.5rem;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-    animation: slideIn 0.8s ease;
-    animation-fill-mode: both;
-  }
+        /* Transparency Section */
+        .transparency {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+        }
 
-  .system-card:nth-child(1) { animation-delay: 0.2s; }
-  .system-card:nth-child(2) { animation-delay: 0.4s; }
-  .system-card:nth-child(3) { animation-delay: 0.6s; }
+        .section-label {
+            color: var(--dim);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
 
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        .logic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
 
-  .system-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--silver));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
+        .logic-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
 
-  .system-card:hover::before {
-    transform: scaleX(1);
-  }
+        .logic-box p {
+            color: var(--dim);
+            font-size: 0.95rem;
+        }
 
-  .system-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-    box-shadow: 0 20px 60px rgba(255,215,0,0.2);
-  }
+        /* Comparison Table */
+        .comparison {
+            margin: 4rem 0;
+            overflow-x: auto;
+        }
 
-  .system-number {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    color: rgba(255,215,0,0.1);
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    line-height: 1;
-    pointer-events: none;
-  }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
 
-  .system-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    display: block;
-  }
+        th {
+            padding: 1rem;
+            color: var(--dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
 
-  .system-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
-  }
+        td {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 1rem;
+        }
 
-  .system-desc {
-    color: var(--dim);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
+        .highlight-cell {
+            background: rgba(255,255,255,0.03);
+            font-weight: 600;
+        }
 
-  .system-features {
-    list-style: none;
-    margin-bottom: 2rem;
-  }
+        /* Demo Section */
+        .demo-box {
+            background: linear-gradient(to right, #111, #050505);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            text-align: center;
+            margin: 4rem 0;
+        }
 
-  .system-features li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: #aaa;
-    font-size: 0.9rem;
-  }
+        /* Custom Styling for Payhip Embed */
+        .payhip-buy-button {
+            display: inline-block !important;
+            background: var(--accent) !important;
+            color: var(--bg) !important;
+            padding: 1.5rem 3rem !important;
+            border-radius: 12px !important;
+            font-weight: 800 !important;
+            text-decoration: none !important;
+            font-size: 1.1rem !important;
+            text-transform: uppercase !important;
+            margin-top: 2rem !important;
+            transition: transform 0.2s ease !important;
+            border: none !important;
+            font-family: 'Inter', sans-serif !important;
+        }
 
-  .system-features li::before {
-    content: '▸';
-    color: var(--gold);
-    font-weight: 700;
-    margin-right: 0.8rem;
-  }
+        .payhip-buy-button:hover {
+            transform: scale(1.02) !important;
+        }
 
-  /* DOWNLOAD BUTTON */
-  .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
-    color: #000;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
+        .security-footer {
+            margin-top: 4rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--dim);
+            font-size: 0.9rem;
+        }
 
-  .download-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .download-btn:hover::before {
-    left: 100%;
-  }
-
-  .download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255,215,0,0.4);
-  }
-
-  .download-btn:active {
-    transform: translateY(0);
-  }
-
-  /* BONUS SECTION */
-  .bonus-section {
-    background: linear-gradient(135deg, rgba(192,192,192,0.05) 0%, transparent 100%);
-    border: 1px solid var(--steel);
-    border-radius: 20px;
-    padding: 3rem;
-    margin: 5rem 0;
-    animation: fadeIn 2s ease;
-  }
-
-  .bonus-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--silver);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .bonus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .bonus-item {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .bonus-item:hover {
-    background: rgba(255,215,0,0.05);
-    border-color: var(--gold);
-    transform: translateY(-5px);
-  }
-
-  .bonus-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .bonus-name {
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .bonus-desc {
-    font-size: 0.85rem;
-    color: var(--dim);
-    line-height: 1.5;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-    border-top: 1px solid var(--border);
-    margin-top: 5rem;
-  }
-
-  .footer-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    color: var(--dim);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: color 0.3s ease;
-  }
-
-  .footer-links a:hover {
-    color: var(--gold);
-  }
-
-  .footer-copy {
-    color: var(--steel);
-    font-size: 0.85rem;
-  }
-
-  @media (max-width: 768px) {
-    .systems-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .logo {
-      font-size: 3rem;
-    }
-  }
-</style>
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .deal-card { padding: 1.5rem; }
+            .price-tag { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
+        <nav class="top-nav">
+            <div class="logo">FGG x REPFAM</div>
+            <div class="badge-live">Agency Capacity: Active</div>
+        </nav>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="factory-badge">🏭 Business in a Box</div>
-    <h1 class="logo">THE INVISIBLE<br/>FACTORY</h1>
-    <p class="subtitle">Your Complete Digital Business System</p>
-  </header>
+        <header>
+            <span class="pre-title">Global Agency Launchpad</span>
+            <h1>Infrastructure for Professionals who Scale.</h1>
+            <p class="hero-sub">We bridge the gap between backend engineering and frontend media. Your digital headquarters, deployed globally in 72 hours.</p>
+        </header>
 
-  <!-- WELCOME -->
-  <section class="welcome">
-    <h2>Welcome to Your Empire</h2>
-    <p><strong>Congratulations.</strong> You now have lifetime access to the complete Invisible Factory — everything you need to build, launch, and scale a profitable digital business.</p>
-    <p style="margin-top:1rem;">This is not a course. This is not a community. This is a <strong>turnkey business system</strong> — the same infrastructure used by 6 and 7-figure digital entrepreneurs, now in your hands.</p>
-    <p style="margin-top:1rem;color:var(--gold);font-weight:600;">No monthly fees. No upsells. No expiration. This is yours forever.</p>
-  </section>
+        <div class="deal-card">
+            <div class="deal-header">
+                <div>
+                    <h2 class="serif" style="font-size: 2rem; margin-bottom: 0.5rem;">The $100 Launch</h2>
+                    <p style="color: var(--dim)">Everything you need to compete globally. Zero monthly overhead.</p>
+                </div>
+                <div class="price-tag">$100<span>One-Time</span></div>
+            </div>
 
-  <!-- SYSTEMS GRID -->
-  <section class="systems-grid">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>Global Deployment</h4>
+                    <p>Designed for Speed</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Custom Assets</h4>
+                    <p>.com / .org Included</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Tier-1 Hosting</h4>
+                    <p>365 Days Included</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Universal Access</h4>
+                    <p>Mobile Optimized</p>
+                </div>
+            </div>
+        </div>
 
-    <!-- SYSTEM 1 -->
-    <div class="system-card">
-      <div class="system-number">01</div>
-      <div class="system-icon">📘</div>
-      <h3 class="system-title">7-Day Launch Playbook</h3>
-      <p class="system-desc">Your step-by-step roadmap to creating and launching your first digital product in one week. Zero experience required.</p>
-      <ul class="system-features">
-        <li>Pick your profitable topic</li>
-        <li>Create your low-ticket product</li>
-        <li>Build your sales hub</li>
-        <li>Set up email automation</li>
-        <li>Launch and make your first sale</li>
-      </ul>
-      <a href="7-Day-Launch-Playbook.pdf" download class="download-btn">
-        📥 Download Playbook
-      </a>
+        <section class="transparency">
+            <span class="section-label">01. THE "WHY" — HEAD ON</span>
+            <div class="logic-grid">
+                <div class="logic-box">
+                    <h3>Ecosystem over Transaction.</h3>
+                    <p>We aren't looking to make a one-time profit. We want long-term partners. By providing professional infrastructure at cost, we enable you to reach the scale where you require our advanced automation systems and media consulting.</p>
+                </div>
+                <div class="logic-box">
+                    <h3>The Factory Advantage.</h3>
+                    <p>Traditional workflows take weeks. Our automated factory engine reduces build time from 40 hours to 40 minutes. We pass these efficiency savings directly to you, maintaining premium quality at scale.</p>
+                </div>
+                <div class="logic-box">
+                    <h3>Worldwide Connectivity.</h3>
+                    <p>We are a family-run operation focused on building a worldwide network of winners. From private ventures to corporate entities, we provide the engine that powers modern growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <span class="section-label">02. THE BREAKDOWN</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Standard Agency</th>
+                        <th>FGG x Repfam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Initial Build</td>
+                        <td>$1,500 - $5,000</td>
+                        <td class="highlight-cell">$100</td>
+                    </tr>
+                    <tr>
+                        <td>Domain Acquisition</td>
+                        <td>$20/year</td>
+                        <td class="highlight-cell">INCLUDED</td>
+                    </tr>
+                    <tr>
+                        <td>Hosting Fees</td>
+                        <td>$30 - $100/mo</td>
+                        <td class="highlight-cell">1 YEAR INCLUDED</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing Logic</td>
+                        <td>Generic Templates</td>
+                        <td class="highlight-cell">Conversion Focused</td>
+                    </tr>
+                    <tr>
+                        <td>The Goal</td>
+                        <td>Project Profit</td>
+                        <td class="highlight-cell">Client Growth</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="demo-box">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Live Deployment Samples</h3>
+            <p style="color: var(--dim); margin-bottom: 2rem;">See our latest high-end professional build: <strong>Noam Katan Catering</strong>. A premium experience designed for high-conversion bookings.</p>
+            <a href="#" style="color: var(--accent); text-decoration: underline; font-family: 'JetBrains Mono';">VIEW LIVE DEMO</a>
+        </div>
+
+        <section style="text-align: center; padding-bottom: 4rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Scale?</h2>
+            <p style="color: var(--dim);">Secure your spot in the Global Factory today.</p>
+            
+            <!-- Step 2: Payhip Embed Button -->
+            <a href="https://payhip.com/b/XjmJP" class="payhip-buy-button" data-theme="none" data-product="XjmJP">SECURE ACCESS — $100</a>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--dim);">Instant Onboarding & Checkout</p>
+        </section>
+
+        <footer class="security-footer">
+            <p><strong>Universal Delivery Guarantee:</strong> After purchase, you will receive an instant "Welcome Document." Our team will reach out within 24 hours to initiate your build. If the site is not live within 72 hours of receiving your info, we refund your $100 and you keep the domain. No Risk. All Scale.</p>
+            <p style="margin-top: 2rem; font-size: 0.7rem; opacity: 0.5;">&copy; 2026 FGG x REPFAM. WORLDWIDE DEPLOYMENT.</p>
+        </footer>
     </div>
-
-    <!-- SYSTEM 2 -->
-    <div class="system-card">
-      <div class="system-number">02</div>
-      <div class="system-icon">🤖</div>
-      <h3 class="system-title">AI Search Hustle Blueprint</h3>
-      <p class="system-desc">The complete framework for using AI + search intent to generate consistent sales without chasing algorithms.</p>
-      <ul class="system-features">
-        <li>The Search Intent Formula</li>
-        <li>3 Asset System breakdown</li>
-        <li>Keyword research method</li>
-        <li>Content automation workflow</li>
-        <li>Monetization stacking strategy</li>
-      </ul>
-      <a href="AI-Search-Hustle.pdf" download class="download-btn">
-        📥 Download Blueprint
-      </a>
-    </div>
-
-    <!-- SYSTEM 3 -->
-    <div class="system-card">
-      <div class="system-number">03</div>
-      <div class="system-icon">🎯</div>
-      <h3 class="system-title">Traffic Target System</h3>
-      <p class="system-desc">The 4-part operating system for generating targeted traffic without paid ads. Build once, sell forever.</p>
-      <ul class="system-features">
-        <li>Traffic Foundations (4 sources)</li>
-        <li>Platform Leverage Playbook</li>
-        <li>Conversion Alignment module</li>
-        <li>Authority Acceleration tactics</li>
-        <li>14-Day execution sprint</li>
-      </ul>
-      <a href="fgg-traffic-target-product.html" class="download-btn">
-        🚀 Access Full System
-      </a>
-    </div>
-
-  </section>
-
-  <!-- BONUS SECTION -->
-  <section class="bonus-section">
-    <h2 class="bonus-title">🎁 Factory Resources</h2>
-    <p style="text-align:center;color:var(--dim);margin-bottom:2rem;">Additional tools and systems included with your lifetime access</p>
-    
-    <div class="bonus-grid">
-      <div class="bonus-item">
-        <div class="bonus-icon">📊</div>
-        <div class="bonus-name">FGG Targeting Engine</div>
-        <p class="bonus-desc">Submit your links for high-intent traffic distribution</p>
-        <a href="https://llclick.com/vdn7mzm6/" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">ACTIVATE →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">📚</div>
-        <div class="bonus-name">Resource Library</div>
-        <p class="bonus-desc">Funnel templates, posting strategies, and monetization blueprints</p>
-        <a href="https://freegameguys.blogspot.com" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">ACCESS →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">🎬</div>
-        <div class="bonus-name">YouTube Channel</div>
-        <p class="bonus-desc">Step-by-step walkthroughs and system breakdowns</p>
-        <a href="https://youtube.com/@freegameguys?sub_confirmation=1" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">SUBSCRIBE →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">📌</div>
-        <div class="bonus-name">Pinterest Strategy</div>
-        <p class="bonus-desc">Evergreen traffic system and pin automation guides</p>
-        <a href="https://www.pinterest.com/FreeGameGuys/" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">FOLLOW →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEXT STEPS -->
-  <section class="welcome" style="margin-top:5rem;">
-    <h2>⚡ Your Next Steps</h2>
-    <p><strong>Don't let this sit in your downloads folder.</strong> The only thing between you and your first digital sale is execution.</p>
-    <ol style="line-height:2;margin:1.5rem 0;padding-left:1.5rem;color:#ccc;">
-      <li>Download all 3 systems above</li>
-      <li>Start Day 1 of the Launch Playbook today</li>
-      <li>Activate your Targeting Engine</li>
-      <li>Bookmark this page for lifetime access</li>
-    </ol>
-    <p style="margin-top:1.5rem;padding:1.5rem;background:rgba(255,215,0,0.05);border-left:3px solid var(--gold);border-radius:8px;">
-      <strong style="color:var(--gold);">Remember:</strong> You now own a complete business infrastructure. The systems are tested. The blueprints are proven. All that's left is to press GO.
-    </p>
-  </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-logo">FREEGAMEGUYS</div>
-  <div class="footer-links">
-    <a href="https://beacons.ai/freegameguys">Beacons</a>
-    <a href="https://freegameguys.blogspot.com">Blog</a>
-    <a href="https://youtube.com/@freegameguys?sub_confirmation=1">YouTube</a>
-    <a href="https://www.pinterest.com/FreeGameGuys/">Pinterest</a>
-    <a href="https://www.tiktok.com/@freegameguys">TikTok</a>
-  </div>
-  <p class="footer-copy">© 2026 FreeGameGuys · The Invisible Factory · Business in a Box</p>
-  <p class="footer-copy" style="margin-top:0.5rem;">Teaching real people how to build real digital businesses. No ads. No hype. Just systems.</p>
-</footer>
 
 </body>
 </html>
