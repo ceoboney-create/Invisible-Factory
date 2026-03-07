@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE 2026 ZERO-RENT BLUEPRINT | FGG REPFAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg: #050505;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0 40px 0;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: black;
+            padding: 6px 18px;
+            font-weight: 900;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin: 25px 0 10px 0;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin-top: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* The Math Grid */
+        .math-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+
+        .math-header {
+            font-weight: 900;
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .math-row {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.95rem;
+        }
+
+        .gold-text { color: var(--gold); font-weight: bold; }
+
+        /* Interactive Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 18px;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255,215,0,0.03);
+            border-color: rgba(255,215,0,0.1);
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gold);
+            margin-right: 18px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: black;
+        }
+
+        /* Savage CTA */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(255,215,0,0.05));
+            border-radius: 20px;
+        }
+
+        .btn-savage {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            padding: 22px 45px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .btn-savage:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 0.7rem;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .math-grid { grid-template-columns: 1fr 1fr; }
+            .hide-mobile { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge">Industrial Intelligence</span>
+        <h1>ZERO-RENT BLUEPRINT</h1>
+        <div class="subtitle">Infrastructure Sovereignty 2026</div>
+    </header>
+
+    <!-- Phase 1 -->
+    <div class="glass-card">
+        <h2>01. THE SAVAGE AUDIT</h2>
+        <p style="color: #888;">Stop bleeding capital into "Guru Software" that you don't own.</p>
+        
+        <div class="math-grid">
+            <div class="math-header">Component</div>
+            <div class="math-header">Monthly Rent</div>
+            <div class="math-header">FGG Build</div>
+
+            <div class="math-row">Funnel Platform</div>
+            <div class="math-row">$297.00</div>
+            <div class="math-row gold-text">$0.00</div>
+
+            <div class="math-row">Email System</div>
+            <div class="math-row">$99.00</div>
+            <div class="math-row gold-text">$0.00</div>
+
+            <div class="math-row">Hosting/SSL</div>
+            <div class="math-row">$49.00</div>
+            <div class="math-row gold-text">$0.00</div>
+
+            <div class="math-row" style="border: none; font-weight: 900; color: #fff;">TOTAL YEARLY</div>
+            <div class="math-row" style="border: none; color: #ff4444;">$5,340.00</div>
+            <div class="math-row gold-text" style="border: none; font-size: 1.2rem;">$101.00</div>
+        </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="glass-card">
+        <h2>02. TRAFFIC MECHANICS</h2>
+        <div class="checklist-item" onclick="toggle(this)">
+            <div class="checkbox"></div>
+            <div><strong>NotebookLM Intel:</strong> Scan 50+ sources to engineer search-intent content.</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+            <div class="checkbox"></div>
+            <div><strong>The Manifesto:</strong> Deploy one pillar asset that anchors your entire niche.</div>
+        </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="glass-card">
+        <h2>03. THE 72-HOUR FORTRESS</h2>
+        <div class="checklist-item" onclick="toggle(this)">
+            <div class="checkbox"></div>
+            <div><strong>Sovereign Domain:</strong> No rented subdomains. You own the .com.</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+            <div class="checkbox"></div>
+            <div><strong>Lead Capture:</strong> LeadsLeap + SendSteed automation integration.</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+            <div class="checkbox"></div>
+            <div><strong>Deployment:</strong> GitHub/Netlify static pipeline for 100% uptime.</div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <a href="https://lllpg.com/mn62kcgt/" class="btn-savage">Claim Deployment Slot</a>
+        <p style="color: #444; margin-top: 20px; font-size: 0.8rem;">WE BUILD THE FORTRESS. YOU RULE THE LAND.</p>
+    </div>
+
+    <footer>
+        © 2026 FGG REPFAM | BMORE SUPPORTIVE | WV INDUSTRIAL
+    </footer>
+</div>
+
+<script>
+    function toggle(el) {
+        const box = el.querySelector('.checkbox');
+        if (box.innerText === '✓') {
+            box.innerText = '';
+            box.style.background = 'transparent';
+            el.style.borderColor = 'transparent';
+        } else {
+            box.innerText = '✓';
+            box.style.background = 'var(--gold)';
+            el.style.borderColor = 'rgba(255,215,0,0.3)';
+        }
+    }
+</script>
+
+</body>
+</html>
